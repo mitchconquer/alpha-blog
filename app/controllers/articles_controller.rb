@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:edit, :update, :show, :destory]
+  before_action :set_article, only: [:edit, :update, :show, :destroy]
 
   def index
     @articles = Article.all
@@ -37,9 +37,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    # For some reason @artile is nil every time only for this #delete method
     @article.destroy
-    flash[:danger] = "Article was successfully deleted"
+    flash[:danger] = %Q(Article "#{@article.title}" was successfully deleted)
     redirect_to articles_path
   end
 
