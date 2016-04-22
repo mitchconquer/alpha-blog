@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      flash[:success] = "Article was succesfully updated #{@article.inspect}"
+      flash[:success] = "Article was succesfully updated"
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
   def destroy
     # For some reason @artile is nil every time only for this #delete method
     @article.destroy
-    flash[:danger] = "Article was successfully deleted #{@article.inspect}"
+    flash[:danger] = "Article was successfully deleted"
     redirect_to articles_path
   end
 
